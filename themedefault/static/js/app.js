@@ -4,6 +4,6 @@
 
 var nirvarisApp = angular.module('nirvarisApp', [
 	'ngSanitize',
-	'nirvarisControllers'
-    /*'dtgServices'*/
+	'nirvarisControllers',
+    'nirvarisServices'
 ]);

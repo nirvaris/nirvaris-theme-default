@@ -2,4 +2,4 @@
 
 /* Services */
 
-var dtgServices = angular.module('dtgServices', ['ngResource']);
+var nirvarisServices = angular.module('nirvarisServices', []);

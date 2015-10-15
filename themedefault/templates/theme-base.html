@@ -10,7 +10,11 @@
 
 	<link rel="icon" href="{% static 'image/fav.png' %}">
     <title>{% block head_title %}Nirvaris Pages{% endblock %}</title>
+	
     {% include 'theme-head-css.html' %}
+	
+	{% include 'theme-head-javascript.html' %}
+	
 </head>
 <body class="{% block body_class %}{% endblock %}"  ng-controller="nirvarisCtrl">
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -29,7 +33,6 @@
 	{% include 'theme-footer.html' %}
 	<!-- End footer -->
 
-	{% include 'theme-footer-javascript.html' %}
-	<!-- Scripts -->
+	
 </body>
 </html>
