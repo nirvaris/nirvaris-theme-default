@@ -2,3 +2,4 @@ include LICENSE
 include README.rst
 exclude settings.py wsgi.py
 recursive-include themedefault/templates *
+recursive-include themedefault/static *
