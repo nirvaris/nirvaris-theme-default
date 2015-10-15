@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="nirvarisApp">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
     <title>{% block head_title %}Nirvaris Pages{% endblock %}</title>
     {% include 'theme-head-css.html' %}
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% endblock %}"  ng-controller="nirvarisCtrl">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		{% include 'theme-navbar.html' %}
 	</nav>
