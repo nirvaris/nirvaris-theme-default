@@ -1,0 +1,80 @@
+.gallery {
+	width: 430px;
+}
+
+.gallery-player {
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+}
+.gallery-image-description {
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	padding: 8px 15px;
+	-webkit-transition: 0.3s ease-in-out bottom;
+	-moz-transition: 0.3s ease-in-out bottom;
+    -o-transition: 0.3s ease-in-out bottom;
+    -ms-transition: 0.3s ease-in-out bottom;
+    transition: 0.3s ease-in-out bottom;
+}
+.gallery-player:hover .gallery-image-description {
+	bottom: -100%;
+}
+
+.gallery-thumbs {
+	width: 430px;
+	overflow: hidden;
+	position: absolute;
+}
+.gallery-thumbs ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+	display: inline-flex;
+	position: relative;
+	-webkit-transition: 0.3s ease-in-out left;
+	-moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    -ms-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}
+.gallery-thumbs li {
+	height: 80px;
+	width: 80px;
+	cursor: pointer;
+	display: table-cell;
+	margin-right: 10px;
+}
+.gallery-thumbs li:first-child {
+	margin-left: 10px;
+}
+.gallery-scroll-left-button {
+	height: 80px;
+	width: 30px;
+	background: #ccc;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 999;
+	cursor: pointer;
+	background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.gallery-scroll-right-button {
+	height: 80px;
+	width: 30px;
+	background: #ccc;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: 999;
+	cursor: pointer;
+	background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

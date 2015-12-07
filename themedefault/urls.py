@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from .views import HomeView
+from .views import HomeView, FormStyleView, MessagesStyleView, HorizontalThumbsView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^home$',HomeView.as_view(),name='home'),
+    url(r'^form$', FormStyleView.as_view(), name='form'),
+    url(r'^messages$', MessagesStyleView.as_view(), name='messages'),
+    url(r'^horizontal-thumbs$', HorizontalThumbsView.as_view(), name='horizontal-thumbs'),
 ]

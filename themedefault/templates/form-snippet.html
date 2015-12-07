@@ -1,0 +1,52 @@
+{% load theme_form_tags %}
+
+{% if form.non_field_errors %}
+    <ul class="form-error-list">
+    {% for error in form.non_field_errors %}
+        <li>{{ error|escape }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% for field in form.visible_fields %}
+
+	{% if field|field_type == 'textbox' or field|field_type == 'textarea' %}
+		{% if field.field.required %}
+			<div class="form-group {% if field.errors %}has-error{% endif %} required">
+		{% else %}
+			<div class="form-group {% if field.errors %}has-error{% endif %}">
+		{% endif %}
+
+		{{ field.label_tag }}
+    	{{ field|add_css_class:'form-control' }}
+	{% elif field|field_type == 'checkbox' %}
+  		<div class="checkbox">
+			<label>
+      		  	{{ field }} {{ field.label }}
+    	  	</label>
+	{% endif %}
+
+    {% if field.help_text %}
+        <p class="help-block">{{ field.help_text }}</p>
+    {% endif %}
+    {% if field.errors %}
+        <ul class="form-error-list">
+            {% for error in field.errors %}
+	   	 		<li>{{ error|escape }}</li>
+			{% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+{% endfor %}
+
+{% for field in form.hidden_fields %}
+    {{ field }}
+{% endfor %}
+
+{% if field|field_type == 'checkbox' %}
+  <div class="checkbox">
+    <label>
+      {{ field }} {{ field.label }}
+    </label>
+  </div>	
+{% endif %}

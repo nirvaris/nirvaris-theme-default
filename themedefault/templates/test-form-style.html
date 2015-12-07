@@ -1,0 +1,21 @@
+{% extends "theme-base.html" %}
+
+{% load i18n %}
+{% load theme_form_tags %}
+
+{% block head_title %}{{ page.title }}{% endblock %}
+
+{% block item-meta-tag %}
+{% include 'theme-head-meta-item.html' with item=page %}
+{% endblock %}
+
+
+{% block content %}
+	
+	<form ng-non-bindable method="POST" >{% csrf_token %}
+		{{ form|form_style }}
+		<input class="btn" type="submit" value="{% trans 'Submit' %}"/>
+	</form>
+	{% form_script %}
+{% endblock %}
+
