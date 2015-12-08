@@ -12,7 +12,7 @@
 
 {% block content %}
 	
-	<form ng-non-bindable method="POST" >{% csrf_token %}
+	<form method="POST" action="#" >{% csrf_token %}
 		{{ form|form_style }}
 		<input class="btn" type="submit" value="{% trans 'Submit' %}"/>
 	</form>
