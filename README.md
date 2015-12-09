@@ -12,7 +12,7 @@ We call it the default theme, as we use it as a base to build diferent ones, how
 Everytime we start a new django application, we begin it building the theme. Maybe in the future, it will be so sofisticated as the wordpress ones, where you can setup menus and add some meta data. We will get there. 
 
 #Quick start
--
+
 
 To install the theme, use pip from git:
 
@@ -44,6 +44,41 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
 <span>Thid is the default theme</span>
 {% endblock %}
 ```
+
+- Django Forms and messages are styled using theme template tags
+
+```
+{% extends "theme-base.html" %}
+{% load i18n %}
+{% load theme_form_tags %}
+{% load theme_messages_tags %}
+
+{% block head_title %}{% trans 'Talk to Us' %}{% endblock %}
+
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+			<form method="POST" action="#">{% csrf_token %}
+				{{ messages|messages_style }}		
+				{{ form|form_style }}
+				<div class="form-group">
+					{# Translators: The submit button on the comments form. #}
+					<input class="btn btn-primary btn-lg btn-block" type="submit" value="{% trans 'Send' %}" />
+				</div>
+			</form>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
+	
+{% endblock %}
+```
+
+- The theme also provide a simple image gallery
 
 - If you want to build a new theme, just donwload the sources, rename the app and use this as a template.
 
