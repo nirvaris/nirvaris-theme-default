@@ -11,6 +11,10 @@ We call it the default theme, as we use it as a base to build diferent ones, how
 
 Everytime we start a new django application, we begin it building the theme. Maybe in the future, it will be so sofisticated as the wordpress ones, where you can setup menus and add some meta data. We will get there. 
 
+It uses the follow dependecies from Nirvaris:
+
+- [Nirvaris Profile](https://github.com/nirvaris/nirvaris-profile)
+
 #Quick start
 
 
@@ -24,6 +28,7 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
 ```
     INSTALLED_APPS = (
         ...
+        'n_profile'
         'themedefault',
     )
 ```
