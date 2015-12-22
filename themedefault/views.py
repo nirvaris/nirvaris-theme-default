@@ -11,8 +11,8 @@ from .forms import FormStyleForm
 
 from .classes import TagImage
 
-class HorizontalThumbsView(View):
-    
+class DemoGalleryHorizontalThumbsView(View):
+
     def get(self, request):
 
         images = []
@@ -35,34 +35,43 @@ class HorizontalThumbsView(View):
         images.append(TagImage('image_17.jpg','Master Youda Again'))
         images.append(TagImage('image_18.jpg','Imperial Fighters'))
 
-        
+
         request_context = RequestContext(request,{'images':images})
-        return render_to_response('horizontal-thumbs.html', request_context)
+        return render_to_response('demo-gallery-horizontal-thumbs.html', request_context)
 
-class HomeView(TemplateView):
-    template_name = "theme-home.html"
+class DemoHomeView(TemplateView):
+    template_name = "demo-home.html"
 
-class FormStyleView(FormView):
-    template_name = 'test-form-style.html'
+    def get_context_data(self, **kwargs):
+        context = super(DemoHomeView, self).get_context_data(**kwargs)
+        context['meta_data_locals'] = [
+            {
+                'name':'keywords',
+                'content':'some key words from view'
+            },
+        ]
+        return context
+class DemoFormStyleView(FormView):
+    template_name = 'demo-form-style.html'
     form_class = FormStyleForm
     success_url = 'form-style'
-    
-class MessagesStyleView(TemplateView):
-    template_name = 'test-messages-style.html'
-    
+
+class DemoMessagesStyleView(TemplateView):
+    template_name = 'demo-messages-style.html'
+
     def get(self, request):
-        
+
         if not 'message_type' in request.GET:
             messages.error(request, _('You must set a parameter "message_type with the stype: success, info or error"'))
             return super(MessagesStyleView,self).get(request)
-            
+
         message_type = request.GET['message_type']
-        
-        if 'success' in message_type: 
+
+        if 'success' in message_type:
             messages.success(request, _('This is a SUCCESS message test'))
-        if 'info' in message_type:             
+        if 'info' in message_type:
             messages.info(request, _('This is a INFO message test'))
-        if 'error' in message_type: 
-            messages.error(request, _('This is a ERROR message test'))                
-        
+        if 'error' in message_type:
+            messages.error(request, _('This is a ERROR message test'))
+
         return super(MessagesStyleView,self).get(request)

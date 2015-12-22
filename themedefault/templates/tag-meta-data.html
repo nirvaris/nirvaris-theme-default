@@ -1,0 +1,10 @@
+{% if meta_data %}
+	{% for tag in meta_data %}
+			{% if 'name' in tag %}
+				<meta name="{{ tag.name }}" content="{{ tag.content }}">
+			{% endif %}
+			{% if 'property' in tag %}
+				<meta property="{{ tag.property }}" content="{{ tag.content }}">
+			{% endif %}
+	{% endfor %}
+{% endif %}

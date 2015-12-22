@@ -46,7 +46,7 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
 
 
 {% block content %}
-<span>Thid is the default theme</span>
+<span>This is the default theme</span>
 {% endblock %}
 ```
 
