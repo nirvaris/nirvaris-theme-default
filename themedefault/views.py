@@ -50,6 +50,7 @@ class DemoHomeView(TemplateView):
                 'content':'some key words from view'
             },
         ]
+        context['title'] = 'Home Demo'
         return context
 class DemoFormStyleView(FormView):
     template_name = 'demo-form-style.html'

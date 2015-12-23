@@ -11,9 +11,10 @@
 		{% meta_data meta_data_locals %}
 
 	<link rel="icon" href="{% static 'image/fav.png' %}">
-    <title>{% block head_title %}Nirvaris Pages{% endblock %}</title>
 
-    {% include 'theme-head-css.html' %}
+  <title>{% theme_title title %}</title>
+
+  {% include 'theme-head-css.html' %}
 
 	{% include 'theme-head-javascript.html' %}
 

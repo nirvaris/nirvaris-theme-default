@@ -5,6 +5,13 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import mark_safe
 
+NV_THEME_TITLE = 'Nirvaris Default Theme'
+
+if hasattr(settings, 'NV_THEME_TITLE'):
+    if settings.NV_THEME_TITLE:
+        NV_THEME_TITLE = settings.NV_THEME_TITLE
+
+
 NV_THEME_MICRO_DATA = {
     '@context': 'http://schema.org'
 }
@@ -37,6 +44,20 @@ if hasattr(settings, 'NV_THEME_META_DATA'):
         NV_THEME_META_DATA = settings.NV_THEME_META_DATA
 
 register = template.Library()
+
+@register.simple_tag()
+def theme_title(title):
+    result = ''
+    if NV_THEME_TITLE and NV_THEME_TITLE != '':
+        result = NV_THEME_TITLE
+    if title and title != '':
+        if result != '':
+            result += ' - ' + title
+        else:
+            result = title
+
+    return result
+
 
 @register.inclusion_tag('tag-micro-data.html')
 def micro_data():
