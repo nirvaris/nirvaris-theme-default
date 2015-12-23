@@ -32,6 +32,41 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
         'themedefault',
     )
 ```
+- The theme handles the meta tags, there are global and page specific meta tags. The globals must be added to the settings like
+
+
+```
+# global meta tags in the settings
+NV_THEME_META_DATA = [
+    {
+        'name': 'description',
+        'content': 'This is a Nirvaris Default Theme'
+    },
+    {
+        'name': 'keywords',
+        'content': 'django, theme app, nirvaris'
+    },
+    {
+        'name': 'author',
+        'content': 'Nirvaris'
+    },
+    {
+        'property': 'og:type',
+        'content': 'article'
+    },
+]
+
+# in the view. If the same meta tag is found in the view, 
+# it overrides the global.
+
+context['meta_data_locals'] = [
+    {
+         'name':'keywords',
+         'content':'some key words from view'
+    },
+]
+``` 
+
 
 - The theme render some scheme micro data if you add this variable to the settings.
 
