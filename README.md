@@ -32,17 +32,59 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
         'themedefault',
     )
 ```
+
+- The theme render some scheme micro data if you add this variable to the settings.
+
+```
+NV_THEME_MICRO_DATA = {
+   '@context': 'http://schema.org',
+	'@type': 'Organization',
+	'name' : 'Nirvaris',
+	'url': 'http://www.nirvaris.com',
+	'Description':'We develop bespoke and scalable products from scratch, connected to other programs and web services to capture, exchange and present data.',
+	'email': 'mailto:contact@nirvaris.com',
+	'logo': 'http://static.nirvaris.com/image/logo-graph.png',
+	'address': [{
+	    '@type': 'PostalAddress',
+		'addressCountry':'GB',
+	    'addressLocality': 'London',
+		'addressRegion':'Greater London',
+	    'postalCode': 'E1 6BJ',
+	    'streetAddress': '155 Comercial Street'
+	},{
+	    '@type': 'PostalAddress',
+		'addressCountry':'BR',
+	    'addressLocality': 'Blumenau',
+		'addressRegion':'SC',
+	    'postalCode': '89030-030',
+	    'streetAddress': 'Rua Iguaçu, 209'
+	}],
+	'sameAs' : [
+		'http://www.facebook.com/nirvarispage/',
+		'http://twitter.com/nirvaris',
+		'http://plus.google.com/+Nirvaris',
+		'http://www.linkedin.com/company/nirvaris',
+		'http://github.com/nirvaris'
+	]
+}
+```
+
+- The title tag for the page, is divided in two bits, the global bit and the local bit. The global bis is add to the settings and the local bit is a template variable. If the theme founds a _title_ variable it concatenates with the global. 
+
+```
+# in the settings
+NV_THEME_TITLE = 'Website title'
+
+# in the view
+context['title'] = 'Page specific title'
+
+```
+
 - The way to use it is to make every django template like this and add your content in the content block. As it uses Bootstrap and AngularJS, everything is already loaded up. 
 
 ```
 {% extends "theme-base.html" %}
 {% load i18n %}
-
-{% block head_title %}{{ page.title }}{% endblock %}
-
-{% block item-meta-tag %}
-{% include 'theme-head-meta-item.html' with item=page %}
-{% endblock %}
 
 
 {% block content %}
@@ -57,9 +99,6 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
 {% load i18n %}
 {% load theme_form_tags %}
 {% load theme_messages_tags %}
-
-{% block head_title %}{% trans 'Talk to Us' %}{% endblock %}
-
 
 {% block content %}
 
@@ -85,6 +124,6 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
 
 - The theme also provide a simple image gallery
 
-- If you want to build a new theme, just donwload the sources, rename the app and use this as a template.
+- To build a new theme, just donwload the sources, rename the app and use this as a template.
 
 We have a plan for making some models where you could add the website name, meta-data, schema for Structure data and few more things that the theme could have at the first place and could be added straight at the admin.

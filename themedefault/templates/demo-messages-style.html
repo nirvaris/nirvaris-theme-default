@@ -2,13 +2,6 @@
 {% load i18n %}
 {% load theme_messages_tags %}
 
-{% block head_title %}{{ page.title }}{% endblock %}
-
-{% block item-meta-tag %}
-{% include 'theme-head-meta-item.html' with item=page %}
-{% endblock %}
-
-
 {% block content %}
 {{ messages|messages_style }}
 {% endblock %}
