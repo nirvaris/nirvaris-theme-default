@@ -21,7 +21,7 @@ def horizontal_thumbs(imgs):
 
     c = {}
     c['images'] = images
-    return render_to_string('tag-horizontal-thumbs-tag.html',c)
+    return render_to_string('tag-horizontal-thumbs.html',c)
 
 
 def _naming(img_file_name,name):
