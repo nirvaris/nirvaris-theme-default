@@ -1,0 +1,6 @@
+git+https://github.com/nirvaris/nirvaris-profile
+Django==1.9
+django-smtp-ssl==1.0
+pycrypto==2.6.1
+pytz==2015.7
+wheel==0.26.0
