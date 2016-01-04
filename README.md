@@ -28,7 +28,7 @@ pip install git+https://github.com/nirvaris/nirvaris-theme-default
 ```
     INSTALLED_APPS = (
         ...
-        'n_profile'
+        'n_profile',
         'themedefault',
     )
 ```
