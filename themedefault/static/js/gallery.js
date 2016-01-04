@@ -17,7 +17,7 @@ var GALLERY = GALLERY || {};
 		createThumbs: function(){
 			for (var i = 0; i < galleryData.length; i ++) {
 				var galleryItem = galleryData[i];
-				var html = '<li><img src="' + galleryItem.tinny + '" /></li>';
+				var html = '<li class="gallery-thumb"><div></div><img src="' + galleryItem.tinny + '" /></li>';
 				$galleryThumbsEl.append(html);
 			}
 			$galleryThumbsEls = $galleryThumbsEl.find('li');
@@ -72,8 +72,14 @@ var GALLERY = GALLERY || {};
 		showGalleryImage: function(imageIndex){
 			var galleryItem = galleryData[imageIndex];
 			var thumbItem = $galleryThumbsEls[imageIndex]
-			$galleryImageEl.attr('src', galleryItem.small);
-			$galleryDescriptionEl.html(galleryItem.description);		
+			$($galleryPlayerEl).fadeOut({duration: 150, complete: function(){
+				$galleryImageEl.attr('src', galleryItem.small);
+				$($galleryPlayerEl).fadeIn({duration: 150});
+			}});
+			$galleryInfoEl.html((imageIndex + 1) + ' de ' + galleryData.length);
+			$galleryDescriptionInfoEl.html((imageIndex + 1) + ' de ' + galleryData.length);
+			$galleryDescriptionTextEl.html(galleryItem.description);		
+			$(thumbItem).siblings().removeClass('active')
 			$(thumbItem).addClass('active');	
 		},
 		getScrollSize: function(direction){
@@ -98,10 +104,13 @@ var GALLERY = GALLERY || {};
 	};
 	
 	var $galleryEl = $('.gallery'),
+		$galleryPlayerEl = $('.gallery-player'),
 		$galleryThumbsWrapperEl = $('.gallery-thumbs'),
 		$galleryThumbsEl = $('.gallery-thumbs ul'),
 		$galleryImageEl = $('.gallery-image'),
-		$galleryDescriptionEl = $('.gallery-image-description span'),
+		$galleryDescriptionInfoEl = $('.gallery-image-description .info'),
+		$galleryDescriptionTextEl = $('.gallery-image-description .text'),
+		$galleryInfoEl = $('.gallery-image-info span'),
 		$galleryThumbsEls = [],
 		$scrollLeftButton = $('.gallery-scroll-left-button'),
 		$scrollRightButton = $('.gallery-scroll-right-button'),
