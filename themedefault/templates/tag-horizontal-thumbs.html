@@ -25,14 +25,13 @@
 		</div>
 	</div>
 	<script>
-		var url = '{{ gallery_images }}';
 		var galleryData = [
 			{% for image in images %}
 				{
 
-				tinny: '{% static image.tinny %}',
-				small: '{% static image.small %}',
-				full: '{% static image.full %}',
+				tinny: '{{ gallery_images }}/{{ image.tinny }}',
+				small: '{{ gallery_images }}/{{ image.small }}',
+				full: '{{ gallery_images }}/{{ image.full }}',
 				description: '{{image.description}}',
 				},
 			{% endfor %}
