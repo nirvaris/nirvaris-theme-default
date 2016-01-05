@@ -19,9 +19,9 @@ def horizontal_thumbs(imgs):
 
     for img in imgs:
         images.append({
-            'tinny': _naming(img.file,'tinny'),
-            'small': _naming(img.file,'small'),
-            'full': _naming(img.file,'full'),
+            'tinny': _naming(img.file_name,'tinny'),
+            'small': _naming(img.file_name,'small'),
+            'full': _naming(img.file_name,'full'),
             'description': img.description,
         })
 

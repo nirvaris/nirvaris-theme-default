@@ -1,5 +1,5 @@
 
 class TagImage():
-    def __init__(self, file, description):
-        self.file = file
-        self.description = description    
+    def __init__(self, file_name, description):
+        self.file_name = file_name
+        self.description = description
