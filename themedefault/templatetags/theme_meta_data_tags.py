@@ -11,7 +11,6 @@ if hasattr(settings, 'NV_THEME_TITLE'):
     if settings.NV_THEME_TITLE:
         NV_THEME_TITLE = settings.NV_THEME_TITLE
 
-
 NV_THEME_MICRO_DATA = {
     '@context': 'http://schema.org'
 }
@@ -79,7 +78,6 @@ def meta_data(locals):
         tags.append(tag)
 
     tags.extend(locals)
-
 
     c['meta_data'] = tags
     return c
