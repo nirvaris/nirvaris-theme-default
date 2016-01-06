@@ -15,7 +15,7 @@
 				<span class="text"></span>
 			</div>
 			<div class="gallery-image-info">
-				<span>1 de 2</span>
+				<span></span>
 			</div>
 		</div>
 		<div class="gallery-thumbs">
@@ -25,6 +25,7 @@
 		</div>
 	</div>
 	<script>
+		var galleryUrl = '{{ gallery_images }}';
 		var galleryData = [
 			{% for image in images %}
 				{

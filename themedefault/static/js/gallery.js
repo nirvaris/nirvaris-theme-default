@@ -16,9 +16,32 @@ var GALLERY = GALLERY || {};
 		
 		createThumbs: function(){
 			for (var i = 0; i < galleryData.length; i ++) {
+				var html = '';
 				var galleryItem = galleryData[i];
-				var html = '<li class="gallery-thumb"><div></div><img src="' + galleryItem.tinny + '" /></li>';
-				$galleryThumbsEl.append(html);
+				//var imageExist = this.checkImage(galleryItem.tinny);
+				
+				//if(imageExist) {
+					//html = '<li class="gallery-thumb"><div></div><img src="' + galleryItem.tinny + '" /></li>';
+				//} else {
+					//html = '<li class="gallery-thumb"><div></div><img src="' + galleryUrl + '/no_image_tinny.png" /></li>';
+				//}
+				
+				var li = $('<li class="gallery-thumb"></li>');
+				var div = $('<div></div>');
+				var img = $('<img />');
+				var imgSrc = galleryItem.tinny;
+				
+				img[0].onerror = function() {
+					this.src = galleryUrl + '/no_image_tinny.png';
+				};
+
+				
+				li.append(div);
+				li.append(img);
+				
+				$galleryThumbsEl.append(li);
+				
+				img[0].src = imgSrc;
 			}
 			$galleryThumbsEls = $galleryThumbsEl.find('li');
 			
@@ -64,7 +87,21 @@ var GALLERY = GALLERY || {};
 		},
 		
 		startGallery: function(){
+			
+			$galleryImageEl[0].onerror = function() {
+				this.src = galleryUrl + '/no_image_small.png';
+			};
+			
 			GALLERY.widget.showGalleryImage(0);
+		},
+		
+		checkImage: function (url) {
+			var http = new XMLHttpRequest();
+
+			http.open('POST', url, false);
+			http.send();
+
+			return http.status != 404;
 		}
 	},
 	
@@ -76,6 +113,7 @@ var GALLERY = GALLERY || {};
 				$galleryImageEl.attr('src', galleryItem.small);
 				$($galleryPlayerEl).fadeIn({duration: 150});
 			}});
+			
 			$galleryInfoEl.html((imageIndex + 1) + ' de ' + galleryData.length);
 			$galleryDescriptionInfoEl.html((imageIndex + 1) + ' de ' + galleryData.length);
 			$galleryDescriptionTextEl.html(galleryItem.description);		
