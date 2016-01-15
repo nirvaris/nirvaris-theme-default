@@ -4,7 +4,7 @@ from django import template
 from django.conf import settings
 from django.template.loader import render_to_string
 
-NV_THEME_GALLERY_IMAGES = 'static/gallery'
+NV_THEME_GALLERY_IMAGES = 'static/gallery/'
 
 if hasattr(settings, 'NV_THEME_GALLERY_IMAGES'):
     if settings.NV_THEME_GALLERY_IMAGES:
