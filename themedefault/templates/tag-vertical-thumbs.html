@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}" type="text/css" />
+
+<div class="gallery">
+	<div class="gallery-player">
+		<div class="gallery-image-wrapper">
+			<img class="gallery-image" src="" />
+		</div>
+		<div class="gallery-preloader"></div>
+	</div>
+	<div class="gallery-thumbs">
+		<div class="gallery-scroll-top-button" style="background-image: url({% static 'image/gallery-arrow-top.png' %});"></div>
+		<ul></ul>
+		<div class="gallery-scroll-bottom-button" style="background-image: url({% static 'image/gallery-arrow-bottom.png' %});"></div>
+	</div>
+	<div class="gallery-image-description">
+		<span></span>
+	</div>
+</div>
+<script>
+var galleryUrl = '{{ gallery_images }}';
+var galleryData = [
+	{% for image in images %}
+	{
+
+		tinny: '{{ gallery_images }}{{ image.tinny }}',
+		small: '{{ gallery_images }}{{ image.small }}',
+		full: '{{ gallery_images }}{{ image.full }}',
+		description: '{{image.description}}',
+	},
+	{% endfor %}
+];
+</script>
+<script type="text/javascript" src="{% static 'js/gallery.js' %}"></script>
