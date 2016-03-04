@@ -8,6 +8,13 @@ import re
 register = template.Library()
 
 @register.filter
+def form_style_horizontal(form):
+
+    c = {}
+    c['form'] = form
+    return render_to_string('tag-form-horizontal-snippet.html',c)
+
+@register.filter
 def form_style(form):
 
     c = {}
