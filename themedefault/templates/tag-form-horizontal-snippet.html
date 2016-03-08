@@ -8,34 +8,40 @@
     </ul>
 {% endif %}
 
+
+
 {% for field in form.visible_fields %}
-
-	{% if field|field_type == 'textbox' or field|field_type == 'textarea' %}
-		{% if field.field.required %}
-			<div class="form-group {% if field.errors %}has-error{% endif %} required">
-		{% else %}
-			<div class="form-group {% if field.errors %}has-error{% endif %}">
-		{% endif %}
-
-		{{ field.label_tag }}
-    	{{ field|add_css_class:'form-control' }}
-	{% elif field|field_type == 'checkbox' %}
-  		<div class="checkbox">
-			<label>
-      		  	{{ field }} {{ field.label }}
-    	  	</label>
+	
+	{% if field.field.required %}
+		<div class="form-group {% if field.errors %}has-error{% endif %} required">
+	{% else %}
+		<div class="form-group {% if field.errors %}has-error{% endif %}">
 	{% endif %}
-
-    {% if field.help_text %}
-        <p class="help-block">{{ field.help_text }}</p>
-    {% endif %}
-    {% if field.errors %}
-        <ul class="form-error-list">
-            {% for error in field.errors %}
-	   	 		<li>{{ error|escape }}</li>
+	
+	
+	{% if field|field_type == 'textbox' or field|field_type == 'textarea' %}
+		{{ field.label_tag|add_label_css_class:'col-sm-2 control-label' }}
+		<div class="col-sm-10">
+    		{{ field|add_css_class:'form-control' }}
+	{% elif field|field_type == 'checkbox' %}
+		<div class="col-sm-offset-2 col-sm-10">
+			<div class="checkbox">
+				<label class="checkbox-inline icheckbox">
+      		  		{{ field }} {{ field.label }}
+    	  		</label>
+			</div>
+	{% endif %}
+	{% if field.help_text %}
+		<p class="help-block">{{ field.help_text }}</p>
+	{% endif %}
+	{% if field.errors %}
+		<ul class="form-error-list">
+			{% for error in field.errors %}
+				<li>{{ error|escape }}</li>
 			{% endfor %}
-        </ul>
-    {% endif %}
+		</ul>
+	{% endif %}
+	</div>
     </div>
 {% endfor %}
 

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	{% meta_data meta_data_locals %}
-
+	<!-- icon -->
 	<link rel="icon" href="{% static 'image/favicon.png' %}">
 
     <title>{% theme_title title %}</title>
@@ -19,7 +19,7 @@
 	{% include 'theme-head-javascript.html' %}
 
 </head>
-<body class="{% block body_class %}{% endblock %}"  ng-controller="nirvarisCtrl">
+<body class="{% block body_class %}{% endblock %}" ng-controller="nirvarisCtrl">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		{% include 'theme-navbar.html' %}
 	</nav>
