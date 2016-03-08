@@ -27,6 +27,19 @@ def form_script():
     return {}
 
 @register.filter
+def add_label_css_class(label_tag,css_classes):
+
+    m = re.search('class="(.*?)"',label_tag)
+
+    if m:
+        label_tag = label_tag.replace(m.group(1),(m.group(1)).strip() + ' ' + css_classes)
+    else:
+        label_tag = label_tag.replace('<label','<label class="%s"' % css_classes)
+
+
+    return mark_safe(label_tag)
+
+@register.filter
 def add_css_class(field,css_classes):
 
     bf = field
