@@ -19,15 +19,15 @@ def vertical_thumbs(imgs):
 
     for img in imgs:
         images.append({
-            'tinny': _naming(img.file_name,'tinny'),
-            'small': _naming(img.file_name,'small'),
-            'full': _naming(img.file_name,'full'),
+            'tinny': img.tinny,
+            'small': img.small,
+            'full': img.full,
             'description': img.description,
         })
 
     c = {}
     c['images'] = images
-    c['gallery_images'] = NV_THEME_GALLERY_IMAGES
+
     return render_to_string('tag-vertical-thumbs.html',c)
 
 @register.filter
@@ -37,18 +37,13 @@ def horizontal_thumbs(imgs):
 
     for img in imgs:
         images.append({
-            'tinny': _naming(img.file_name,'tinny'),
-            'small': _naming(img.file_name,'small'),
-            'full': _naming(img.file_name,'full'),
+            'tinny': img.tinny,
+            'small': img.small,
+            'full': img.full,
             'description': img.description,
         })
 
     c = {}
     c['images'] = images
-    c['gallery_images'] = NV_THEME_GALLERY_IMAGES
+
     return render_to_string('tag-horizontal-thumbs.html',c)
-
-
-def _naming(img_file_name,name):
-    ext = img_file_name.split('.')[-1]
-    return img_file_name.replace('.' + ext, '_' + name + '.' + ext)
