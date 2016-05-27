@@ -18,21 +18,13 @@ var GALLERY = GALLERY || {};
 			for (var i = 0; i < galleryData.length; i ++) {
 				var html = '';
 				var galleryItem = galleryData[i];
-				//var imageExist = this.checkImage(galleryItem.tinny);
-				
-				//if(imageExist) {
-					//html = '<li class="gallery-thumb"><div></div><img src="' + galleryItem.tinny + '" /></li>';
-				//} else {
-					//html = '<li class="gallery-thumb"><div></div><img src="' + galleryUrl + '/no_image_tinny.png" /></li>';
-				//}
-				
 				var li = $('<li class="gallery-thumb"></li>');
 				var div = $('<div></div>');
 				var img = $('<img />');
 				var imgSrc = galleryItem.tinny;
 				
 				img[0].onerror = function() {
-					this.src = galleryUrl + '/no_image_tinny.png';
+					this.src = galleryNoImageTinny;
 				};
 
 				
@@ -89,7 +81,7 @@ var GALLERY = GALLERY || {};
 		startGallery: function(){
 			
 			$galleryImageEl[0].onerror = function() {
-				this.src = galleryUrl + '/no_image_small.png';
+				this.src = galleryNoImageTinny;
 			};
 			
 			GALLERY.widget.showGalleryImage(0);

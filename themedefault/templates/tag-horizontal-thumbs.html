@@ -25,15 +25,15 @@
 		</div>
 	</div>
 	<script>
-		var galleryUrl = '{{ gallery_images }}';
+		var galleryNoImageSmall = '{% static 'image/no_image_small.png' %}';
+		var galleryNoImageTinny = '{% static 'image/no_image_tinny.png' %}';
 		var galleryData = [
 			{% for image in images %}
 				{
-
-				tinny: '{{ gallery_images }}/{{ image.tinny }}',
-				small: '{{ gallery_images }}/{{ image.small }}',
-				full: '{{ gallery_images }}/{{ image.full }}',
-				description: '{{image.description}}',
+					tinny: '{{ image.tinny.url }}',
+					small: '{{ image.small.url }}',
+					full: '{{ image.full.url }}',
+					description: '{{image.description}}',
 				},
 			{% endfor %}
 		];
