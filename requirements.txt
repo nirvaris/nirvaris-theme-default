@@ -1,7 +1,7 @@
+Django==1.9.6
+django-smtp-ssl==1.0
+Pillow==3.2.0
+pycrypto==2.6.1
+pytz==2016.4
 git+https://github.com/nirvaris/nirvaris-profile
 git+https://github.com/nirvaris/nirvaris-menu
-Django==1.9
-django-smtp-ssl==1.0
-pycrypto==2.6.1
-pytz==2015.7
-wheel==0.26.0
