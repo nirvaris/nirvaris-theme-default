@@ -35,7 +35,6 @@ class DemoGalleryHorizontalThumbsView(View):
         images.append(TagImage('image_17.jpg','image_17_small.jpg','image_17.jpg','Master Youda Again'))
         images.append(TagImage('image_18.jpg','image_18_small.jpg','image_18.jpg','Imperial Fighters'))
 
-
         request_context = RequestContext(request,{'images':images})
         return render_to_response('demo-gallery-horizontal-thumbs.html', request_context)
 
