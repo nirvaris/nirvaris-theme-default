@@ -63,7 +63,7 @@ class DemoMessagesStyleView(TemplateView):
 
         if not 'message_type' in request.GET:
             messages.error(request, _('You must set a parameter "message_type with the stype: success, info or error"'))
-            return super(MessagesStyleView,self).get(request)
+            return super(DemoMessagesStyleView,self).get(request)
 
         message_type = request.GET['message_type']
 
@@ -74,4 +74,4 @@ class DemoMessagesStyleView(TemplateView):
         if 'error' in message_type:
             messages.error(request, _('This is a ERROR message test'))
 
-        return super(MessagesStyleView,self).get(request)
+        return super(DemoMessagesStyleView,self).get(request)
