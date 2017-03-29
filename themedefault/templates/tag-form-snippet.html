@@ -18,7 +18,7 @@
 		{% endif %}
 
 		{{ field.label_tag }}
-    	{{ field|add_css_class:'form-control' }}
+    {{ field|add_css_class:'form-control' }}
 	{% elif field|field_type == 'checkbox' %}
   		<div class="checkbox">
 			<label>
@@ -48,5 +48,5 @@
     <label>
       {{ field }} {{ field.label }}
     </label>
-  </div>	
+  </div>
 {% endif %}

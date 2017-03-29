@@ -53,6 +53,7 @@ def add_css_class(field,css_classes):
     else:
         html_filed = html_filed.replace('<input','<input class="%s"' % css_classes)
         html_filed = html_filed.replace('<textarea','<textarea class="%s"' % css_classes)
+        html_filed = html_filed.replace('<select','<select class="%s"' % css_classes)
 
     return mark_safe(html_filed)
 

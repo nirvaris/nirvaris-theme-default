@@ -11,15 +11,15 @@
 
 
 {% for field in form.visible_fields %}
-	
+
 	{% if field.field.required %}
 		<div class="form-group {% if field.errors %}has-error{% endif %} required">
 	{% else %}
 		<div class="form-group {% if field.errors %}has-error{% endif %}">
 	{% endif %}
-	
-	
-	{% if field|field_type == 'textbox' or field|field_type == 'textarea' %}
+
+
+	{% if field|field_type == 'textbox' or field|field_type == 'textarea' or field|field_type == 'select' %}
 		{{ field.label_tag|add_label_css_class:'col-sm-2 control-label' }}
 		<div class="col-sm-10">
     		{{ field|add_css_class:'form-control' }}
@@ -54,5 +54,5 @@
     <label>
       {{ field }} {{ field.label }}
     </label>
-  </div>	
+  </div>
 {% endif %}
