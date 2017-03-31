@@ -16,7 +16,10 @@
 
     {% include 'theme-head-css.html' %}
 
-	{% include 'theme-head-javascript.html' %}
+		{% block head_css %}
+		{% endblock %}
+
+		{% include 'theme-head-javascript.html' %}
 
 </head>
 <body class="{% block body_class %}{% endblock %}" ng-controller="nirvarisCtrl">
