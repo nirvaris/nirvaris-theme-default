@@ -9,7 +9,7 @@ The goal is install and uninstall themes to a Django website, changing the look 
 
 We call it the default theme, as we use it as a base to build diferent ones, however, all our apps are built on top of this one, so they will be always comaptible with any app-theme built with the same guide lines.
 
-Everytime we start a new django application, we begin it building the theme. Maybe in the future, it will be so sofisticated as the wordpress ones, where you can setup menus and add some meta data. We will get there. 
+Everytime we start a new django application, we begin it building the theme. Maybe in the future, it will be so sofisticated as the wordpress ones, where you can setup menus and add some meta data. We will get there.
 
 It uses the follow dependecies from Nirvaris:
 
@@ -56,7 +56,7 @@ NV_THEME_META_DATA = [
     },
 ]
 
-# in the view. If the same meta tag is found in the view, 
+# in the view. If the same meta tag is found in the view,
 # it overrides the global.
 
 context['meta_data_locals'] = [
@@ -65,7 +65,7 @@ context['meta_data_locals'] = [
          'content':'some key words from view'
     },
 ]
-``` 
+```
 
 
 - The theme render some scheme micro data if you add this variable to the settings.
@@ -92,7 +92,7 @@ NV_THEME_MICRO_DATA = {
 	    'addressLocality': 'Blumenau',
 		'addressRegion':'SC',
 	    'postalCode': '89030-030',
-	    'streetAddress': 'Rua Iguaçu, 209'
+	    'streetAddress': 'Rua Iguacu, 209'
 	}],
 	'sameAs' : [
 		'http://www.facebook.com/nirvarispage/',
@@ -104,7 +104,7 @@ NV_THEME_MICRO_DATA = {
 }
 ```
 
-- The title tag for the page, is divided in two bits, the global bit and the local bit. The global bis is add to the settings and the local bit is a template variable. If the theme founds a _title_ variable it concatenates with the global. 
+- The title tag for the page, is divided in two bits, the global bit and the local bit. The global bis is add to the settings and the local bit is a template variable. If the theme founds a _title_ variable it concatenates with the global.
 
 ```
 # in the settings
@@ -115,7 +115,7 @@ context['title'] = 'Page specific title'
 
 ```
 
-- The way to use it is to make every django template like this and add your content in the content block. As it uses Bootstrap and AngularJS, everything is already loaded up. 
+- The way to use it is to make every django template like this and add your content in the content block. As it uses Bootstrap and AngularJS, everything is already loaded up.
 
 ```
 {% extends "theme-base.html" %}
@@ -153,7 +153,7 @@ context['title'] = 'Page specific title'
 		<div class="col-md-3">
 		</div>
 	</div>
-	
+
 {% endblock %}
 ```
 
