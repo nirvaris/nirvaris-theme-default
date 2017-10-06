@@ -1,5 +1,13 @@
 {% load theme_form_tags %}
 
+{% block head_css %}
+<style>
+	.form-control.move-left {
+		width: auto;
+	}
+</style>
+{% endblock %}
+
 {% if form.non_field_errors %}
     <ul class="form-error-list">
     {% for error in form.non_field_errors %}
@@ -7,8 +15,6 @@
     {% endfor %}
     </ul>
 {% endif %}
-
-
 
 {% for field in form.visible_fields %}
 
@@ -18,18 +24,12 @@
 		<div class="form-group {% if field.errors %}has-error{% endif %}">
 	{% endif %}
 
-
-	{% if field|field_type == 'textbox' or field|field_type == 'textarea' or field|field_type == 'select' %}
-		{{ field.label_tag|add_label_css_class:'col-sm-2 control-label' }}
+	{{ field.label_tag|add_label_css_class:'col-sm-2 control-label' }}
 		<div class="col-sm-10">
-    		{{ field|add_css_class:'form-control' }}
+	{% if field|field_type == 'textbox' or field|field_type == 'textarea' or field|field_type == 'select' %}
+		{{ field|add_css_class:'form-control' }}
 	{% elif field|field_type == 'checkbox' %}
-		<div class="col-sm-offset-2 col-sm-10">
-			<div class="checkbox">
-				<label class="checkbox-inline icheckbox">
-      		  		{{ field }} {{ field.label }}
-    	  		</label>
-			</div>
+		{{ field|add_css_class:'form-control move-left' }}
 	{% endif %}
 	{% if field.help_text %}
 		<p class="help-block">{{ field.help_text }}</p>
